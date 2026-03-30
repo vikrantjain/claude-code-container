@@ -13,7 +13,7 @@ Pre-built container image for [Claude Code](https://claude.ai/code) with all dep
 ## Build
 
 ```bash
-docker build -t claude-code .
+docker build -t claude-code https://github.com/vikrantjain/claude-code-container.git
 ```
 
 ## Authentication
