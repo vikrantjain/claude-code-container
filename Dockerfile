@@ -9,7 +9,8 @@ RUN apt-get update \
     && useradd -m -s /bin/bash claude \
     && mkdir -p /app && chown claude:claude /app \
     && printf '%s\n' '{"hasCompletedOnboarding":true,"projects":{"/app":{"allowedTools":[],"mcpContextUris":[],"mcpServers":{},"enabledMcpjsonServers":[],"disabledMcpjsonServers":[],"hasTrustDialogAccepted":true,"projectOnboardingSeenCount":1,"hasClaudeMdExternalIncludesApproved":false,"hasClaudeMdExternalIncludesWarningShown":false}}}' > /home/claude/.claude.json \
-    && chown claude:claude /home/claude/.claude.json
+    && mkdir -p /home/claude/.claude \
+    && chown -R claude:claude /home/claude
 
 USER claude
 
