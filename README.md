@@ -4,10 +4,9 @@ Pre-built container image for [Claude Code](https://claude.ai/code) with all dep
 
 ## What's included
 
-- [Bun](https://bun.sh/) runtime
 - Claude Code CLI (pre-installed)
-- curl, CA certificates
-- Non-root `claude` user
+- curl, CA certificates, git
+- Non-root `claude` user (UID 1000)
 - Onboarding and workspace trust pre-configured for `/app`
 
 ## Build
@@ -73,6 +72,6 @@ Your entrypoint should call `exec claude "$@"` at the end to pass through any CM
 
 ## Notes
 
-- The container runs as a non-root `claude` user (required for `--dangerously-skip-permissions`)
+- The container runs as a non-root `claude` user with UID 1000 (required for `--dangerously-skip-permissions`)
 - `/app` is the default working directory, owned by the `claude` user
 - The Claude CLI version is baked into the image at build time — rebuild to update
